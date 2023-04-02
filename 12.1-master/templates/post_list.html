@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Все посты найденные по запросу "Кот и Хлеб"</title>
+    <link rel="stylesheet" href="../static/styles/style.css">
+</head>
+<body>
+<main>
+
+    <a href="/" class="link">Назад</a>
+
+    <h1>Посты по запросу "{{search_string}}"</h1>
+{% for post in posts %}
+    {% for key,value in post.items() %}
+        <div class="post">
+        {% if key == 'pic' %}
+        <img src="{{value}}" width="100%" alt="">
+        {% endif %}
+        {% if key == 'content' %}
+        <p>{{value}} </p>
+        {% endif %}
+    </div>
+    <hr>
+    {% endfor %}
+{% endfor %}
+    <a href="/post" class="button">Добавить пост</a>
+
+</main>
+</body>
+</html>
